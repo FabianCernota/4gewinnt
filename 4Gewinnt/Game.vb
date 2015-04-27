@@ -116,13 +116,14 @@ Public Class Game
     Private Sub checkWin(ByVal column As Integer, ByVal row As Integer)
         Dim zaehler As Integer = 1
         Dim isWin As Boolean = False
-        Dim i As Integer = column - 1
-        'CheckLeft
+        Dim i As Integer = column
+
         If column >= 4 Then
-            While i > 1 And isWin = False
+            While i > 1
+                i -= 1
                 If fields(i, row) = actPlayer Then
                     zaehler += 1
-                    If zaehler = 4 Then
+                    If zaehler >= 4 Then
                         isWin = True
                     End If
                 End If
