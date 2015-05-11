@@ -24,6 +24,9 @@ Partial Class gameForm
     Private Sub InitializeComponent()
         Me.gamePanel = New System.Windows.Forms.Panel()
         Me.btn_new = New System.Windows.Forms.Button()
+        Me.lblActPlayerText = New System.Windows.Forms.Label()
+        Me.lblActPlayer = New System.Windows.Forms.Label()
+        Me.lblWinner = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'gamePanel
@@ -43,19 +46,55 @@ Partial Class gameForm
         Me.btn_new.Text = "Neues Spiel"
         Me.btn_new.UseVisualStyleBackColor = True
         '
+        'lblActPlayerText
+        '
+        Me.lblActPlayerText.AutoSize = True
+        Me.lblActPlayerText.Location = New System.Drawing.Point(621, 83)
+        Me.lblActPlayerText.Name = "lblActPlayerText"
+        Me.lblActPlayerText.Size = New System.Drawing.Size(86, 13)
+        Me.lblActPlayerText.TabIndex = 2
+        Me.lblActPlayerText.Text = "Aktueller Spieler:"
+        '
+        'lblActPlayer
+        '
+        Me.lblActPlayer.AutoSize = True
+        Me.lblActPlayer.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblActPlayer.Location = New System.Drawing.Point(647, 107)
+        Me.lblActPlayer.Name = "lblActPlayer"
+        Me.lblActPlayer.Size = New System.Drawing.Size(29, 31)
+        Me.lblActPlayer.TabIndex = 3
+        Me.lblActPlayer.Text = "1"
+        '
+        'lblWinner
+        '
+        Me.lblWinner.AutoSize = True
+        Me.lblWinner.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWinner.ForeColor = System.Drawing.Color.Red
+        Me.lblWinner.Location = New System.Drawing.Point(2, 2)
+        Me.lblWinner.Name = "lblWinner"
+        Me.lblWinner.Size = New System.Drawing.Size(0, 46)
+        Me.lblWinner.TabIndex = 4
+        '
         'gameForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(719, 659)
+        Me.Controls.Add(Me.lblWinner)
+        Me.Controls.Add(Me.lblActPlayer)
+        Me.Controls.Add(Me.lblActPlayerText)
         Me.Controls.Add(Me.btn_new)
         Me.Controls.Add(Me.gamePanel)
         Me.Name = "gameForm"
         Me.Text = " 4Gewinnt "
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents gamePanel As System.Windows.Forms.Panel
     Friend WithEvents btn_new As System.Windows.Forms.Button
+    Friend WithEvents lblActPlayerText As System.Windows.Forms.Label
+    Friend WithEvents lblActPlayer As System.Windows.Forms.Label
+    Friend WithEvents lblWinner As System.Windows.Forms.Label
 
 End Class
