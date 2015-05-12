@@ -47,11 +47,16 @@ Public Class Game
     End Sub
     'Spielzug
     Public Sub move(ByVal X As Integer)
-        Dim StonePlace As Integer = 0
+
         Dim Spalte As Integer = calcColumn(X)
 
         Dim place As Integer = checkStone(Spalte)
         setStone(place, Spalte)
+    End Sub
+    '
+    Public Sub moveWithColumn(ByVal column As Integer)
+        Dim place As Integer = checkStone(column)
+        setStone(place, column)
     End Sub
     'Berechnet die Breite einer Zelle
     Private Function calcCellWidth() As Integer

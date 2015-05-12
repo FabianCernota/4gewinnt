@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Net
 Imports System.Text
+Imports System.Threading
 Public Class Networking
 
     Public Sub startServer()
@@ -24,35 +25,49 @@ Public Class Networking
         Next IPs
         Return CStr("0.0.0.0")
     End Function
-    Public Sub createServer()
+    Public Sub createServer(ByRef gf As gameForm)
+
         Dim server As New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
         Dim clientHandler As Socket
         Dim ipHostInfo As IPHostEntry = Dns.GetHostEntry(Dns.GetHostName())
         Dim ip As IPAddress = IPAddress.Parse("0.0.0.0")
         Dim localEP As New IPEndPoint(ip, 4747)
+
         Dim data As String = Nothing
-         server.Bind(localEP)
-        Try
-            server.Listen(1)
-            MsgBox("auf client warten")
-            clientHandler = server.Accept()
-            Dim networkStream = New NetworkStream(clientHandler, True)
+        server.Bind(localEP)
 
-            If networkStream.CanRead Then
-                Dim sr = New StreamReader(networkStream)
+        server.Listen(1)
+        MsgBox("auf client warten")
+        clientHandler = server.Accept()
+        Dim networkStream = New NetworkStream(clientHandler, True)
 
-                Dim sw = New StreamWriter(networkStream)
+        If networkStream.CanRead Then
+            Dim triggerGame As gameForm.dlgStartGame
+            triggerGame = New gameForm.dlgStartGame(AddressOf gameForm.start)
+            triggerGame.Invoke()
 
-                sw.WriteLine(">Hallo")
-                sw.Flush()
-            Else
-                Console.WriteLine("Sorry.  You cannot read from this NetworkStream.")
-            End If
+            Dim sr = New StreamReader(networkStream)
+
+            Dim sw = New StreamWriter(networkStream)
+
+            While True
+                Dim message As String = sr.ReadLine
+                Dim trigger As gameForm.dlgTrigger
+                trigger = New gameForm.dlgTrigger(AddressOf gameForm.triggerEvent)
+
+                'Another way of invoking the delegate.
+                trigger.Invoke(message)
+            End While
+
+        Else
+            Console.WriteLine("Sorry.  You cannot read from this NetworkStream.")
+        End If
 
 
-        Catch ex As Exception
-            MsgBox(ex)
-        End Try
+
 
     End Sub
+
+
+
 End Class

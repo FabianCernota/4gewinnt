@@ -1,5 +1,5 @@
 ﻿Public Class gameForm
-    Dim game As Game = New Game
+    Public game As Game = New Game
 
 #Region "Painting_gamePanel"
 
@@ -18,6 +18,8 @@
     Private Sub btn_new_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_new.Click
 
         Dim newGame = New newGame()
+        newGame.gf = Me
+
         newGame.Show()
 
     End Sub
@@ -32,6 +34,27 @@
 
     Private Sub gameForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim newGame = New newGame()
+        newGame.gf = Me
         newGame.Show()
+    End Sub
+    Public Delegate Sub dlgStartGame()
+    Public Sub start()
+        game.gamePanel = gamePanel
+        game.lblWinner = lblWinner
+        game.lblActPlayer = lblActPlayer
+
+        game.paintField()
+
+        game.init()
+    End Sub
+    Public Delegate Sub dlgTrigger(ByVal message As String)
+    Public Sub triggerEvent(ByVal message As String)
+        If message.StartsWith("sendstone") Then
+
+            Dim wordArr As String() = message.Split(CChar(";"))
+            Dim result As String = wordArr(1)
+            game.moveWithColumn(CInt(result))
+            MsgBox(result)
+        End If
     End Sub
 End Class
