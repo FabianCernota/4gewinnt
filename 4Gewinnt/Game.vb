@@ -5,9 +5,11 @@ Public Class Game
     Public gamePanel As Panel
     Public lblWinner As Label
     Public lblActPlayer As Label
+    Public isGame As Boolean = False
     Dim isWin As Boolean = False
     'Gameinit
     Public Sub init()
+        isGame = True
         paintField()
         actPlayer = 1
         isWin = False
@@ -188,7 +190,7 @@ Public Class Game
         End While
         Return zaehler
     End Function
-    'Tester ob Diagonal 4 oder mehr Steine sind.
+    'Testet ob Diagonal 4 oder mehr Steine sind.
     Private Function checkDiagonal(ByRef column As Integer, ByVal row As Integer) As Integer
         Dim zaehler As Integer = 1
         Dim iUpColumn As Integer = column - 1

@@ -16,3 +16,4 @@ C:\Users\14CernoFab\Documents\Visual Studio 2010\Projects\4Gewinnt\4Gewinnt\obj\
 C:\Users\14CernoFab\Documents\Visual Studio 2010\Projects\4Gewinnt\4Gewinnt\obj\x86\Debug\4Gewinnt.exe
 C:\Users\14CernoFab\Documents\Visual Studio 2010\Projects\4Gewinnt\4Gewinnt\obj\x86\Debug\4Gewinnt.xml
 C:\Users\14CernoFab\Documents\Visual Studio 2010\Projects\4Gewinnt\4Gewinnt\obj\x86\Debug\4Gewinnt.pdb
+C:\Users\14CernoFab\Documents\Visual Studio 2010\Projects\4Gewinnt\4Gewinnt\obj\x86\Debug\_4Gewinnt.newGame.resources
