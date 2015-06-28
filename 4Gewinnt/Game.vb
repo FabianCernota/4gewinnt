@@ -2,12 +2,6 @@
 Public Class Game
     Dim actPlayer As Integer = 1
     Public fields(6, 6) As Integer
-    Public gamePanel As Panel
-    Public lblWinner As Label
-    Public lblActPlayer As Label
-    Public isGame As Boolean = False
-    Dim isWin As Boolean = False
-    'Gameinit
     Public Sub init()
         isGame = True
         paintField()
