@@ -65,10 +65,10 @@ Public Class Game
         Dim gefundeneSpalte As Integer = 1
         Dim isFound As Boolean = False
         Do While isFound = False
-            If X > aktuelleSpalte And X < aktuelleSpalte + 100 Then
+            If X > aktuelleSpalte And X < aktuelleSpalte + cell Then
                 isFound = True
             Else
-                aktuelleSpalte = aktuelleSpalte + 100
+                aktuelleSpalte = aktuelleSpalte + cell
                 gefundeneSpalte += 1
             End If
 
